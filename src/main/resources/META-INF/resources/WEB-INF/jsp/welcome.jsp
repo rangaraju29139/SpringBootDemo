@@ -9,6 +9,7 @@
 </head>
 <body>
 <h1>Heyy!!! this is the welcome page for you ${username} </h1>
+<div><a href="list-todos">Manage</a> your todos</div>
 
 </body>
 </html>
