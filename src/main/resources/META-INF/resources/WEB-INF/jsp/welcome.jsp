@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Heyy!!! this is the welcome page for you ${username} and your password is ${password}</h1>
+<h1>Heyy!!! this is the welcome page for you ${username} </h1>
 
 </body>
 </html>

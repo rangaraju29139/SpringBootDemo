@@ -27,7 +27,7 @@ public class LoginController {
 
         if(authenticationService.authenticate(username,password)){
             model.put("username", username);
-            model.put("password", password);
+
             return "welcome";
         }
         model.put("errorMessage","Invalid Credentials Please try again");
