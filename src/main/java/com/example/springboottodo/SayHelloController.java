@@ -14,4 +14,16 @@ public class SayHelloController {
     public String sayHello(){
         return "Hello";
     }
+
+    @RequestMapping("/say-hello-html")
+    @ResponseBody
+    public String sayHelloHtml(){
+        return """
+                <html>
+                <body><h1>This is the html page of sayHelloHtml</h1>
+                </body>
+                </html>
+                
+                """;
+    }
 }
