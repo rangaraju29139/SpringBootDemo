@@ -4,6 +4,7 @@
 </head>
 <body>
 <h1>Hey this is the login page - JSP</h1>
+<pre>${errorMessage}</pre>
 <form action="" method="post">
     Name: <input type="text" name="username" />
     <br>
