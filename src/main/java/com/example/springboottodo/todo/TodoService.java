@@ -44,10 +44,11 @@ public class TodoService {
         return todo;
     }
 
-    public void updateTodoById(int id, String description){
+    public void updateTodoById(int id, String description,LocalDate targetDate){
         Predicate<? super Todo> predicate = (todo) -> todo.getId()== id;
         Todo todo= todos.stream().filter(predicate).findFirst().get();
         todo.setDescription(description);
-        
+        todo.setTargetDate(targetDate);
+
     }
 }

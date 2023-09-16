@@ -47,7 +47,8 @@ public class TodoController {
         }
 
         String username=(String)model.get("name");
-        todoService.addTodo(username,todo.getDescription(), LocalDate.now().plusYears(1),false);
+        LocalDate targetDate = todo.getTargetDate();
+        todoService.addTodo(username,todo.getDescription(), targetDate,false);
         return "redirect:list-todos";
     }
 
@@ -70,7 +71,8 @@ public class TodoController {
         }
         String description = todo.getDescription();
         int id = todo.getId();
-        todoService.updateTodoById(id,description);
+        LocalDate targetDate = todo.getTargetDate();
+        todoService.updateTodoById(id,description,targetDate);
         return "redirect:list-todos";
     }
 }
