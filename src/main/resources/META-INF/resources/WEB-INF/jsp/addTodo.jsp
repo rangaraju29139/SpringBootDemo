@@ -11,39 +11,20 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Todo Page
-</h1>
-
-
 <div class="container">
-    <div>Your todos are  </div>
-    <table class="table table-responsive">
-        <thead>
-        <th>id</th>
-        <th>Description</th>
-        <th>Target Date</th>
-        <th>Is Done?</th>
-        </thead>
-        <tbody>
-        <c:forEach items="${todos}" var="todo">
-            <tr>
-                <td>${todo.id}</td>
-                <td>${todo.description}</td>
-                <td>${todo.targetDate}</td>
-                <td>${todo.done}</td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
-    <a href="add-todo" class="btn btn-success">Add Todo</a>
+    <h1>Enter Todo Details</h1>
+
+    <form action="" method="post" class="">
+        <div class="form-group">
+            <label for="description" >Description </label>
+            <input class="form-control " id="description" type="text" name="description" />
+        </div>
+
+        <input class="btn btn-success" type="submit" />
+    </form>
 
 
 </div>
-
-
-
-
-
 <script src="webjars/bootstrap/5.3.2/js/bootstrap.min.js"></script>
 <script src="webjars/jquery/3.6.0/jquery.min.js"></script>
 </body>
