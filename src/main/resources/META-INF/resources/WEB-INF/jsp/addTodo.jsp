@@ -21,6 +21,7 @@
         <div class="form-group">
             <label for="description" >Description </label>
             <form:input class="form-control " id="description" type="text" name="description"  path="description"/>
+            <form:errors class="form-control " cssClass="text-warning" path="description"></form:errors>
         </div>
         <form:input class="form-control " path="id" type="hidden" />
         <form:input class="form-control " path="done" type="hidden"/>
