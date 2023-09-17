@@ -15,9 +15,9 @@ public class TodoService {
 
     private static int id=0;
     static{
-        todos.add(new Todo(++id,"rangaraju","learn springboot", LocalDate.now().plusYears(1),false));
-        todos.add(new Todo(++id,"rangaraju","learn devops", LocalDate.now().plusYears(1),false));
-        todos.add(new Todo(++id,"rangaraju","learn fullstack", LocalDate.now().plusYears(1),false));
+//        todos.add(new Todo(++id,"rangaraju","learn springboot", LocalDate.now().plusYears(1),false));
+//        todos.add(new Todo(++id,"rangaraju","learn devops", LocalDate.now().plusYears(1),false));
+//        todos.add(new Todo(++id,"rangaraju","learn fullstack", LocalDate.now().plusYears(1),false));
     }
 
     public static List<Todo> getTodos() {
