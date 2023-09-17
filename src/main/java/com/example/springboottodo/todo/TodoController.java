@@ -26,6 +26,9 @@ public class TodoController {
         this.todoService = todoService;
     }
 
+
+
+
     @RequestMapping("/list-todos")
     public String listAllTodos(ModelMap model){
         List<Todo> todoList = todoService.findByUserName("rangaraju");
@@ -75,4 +78,7 @@ public class TodoController {
         todoService.updateTodoById(id,description,targetDate);
         return "redirect:list-todos";
     }
+
+
+
 }

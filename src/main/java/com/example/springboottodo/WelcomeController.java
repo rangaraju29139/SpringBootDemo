@@ -13,11 +13,17 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
 @SessionAttributes("name")
-public class LoginController {
+public class WelcomeController {
 
     @Autowired
     private AuthenticationService authenticationService;
 
+
+
+    @RequestMapping("/")
+    public String showHomePage(){
+        return "home";
+    }
 
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String login(){
@@ -34,7 +40,10 @@ public class LoginController {
         }
         model.put("errorMessage","Invalid Credentials Please try again");
         return "login";
-
-
     }
+
+//    @RequestMapping(value = "**",method = {RequestMethod.GET,RequestMethod.POST})
+//    public String showNotFoundPage(){
+//        return "notFound";
+//    }
 }

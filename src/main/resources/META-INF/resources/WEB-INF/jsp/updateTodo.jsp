@@ -14,6 +14,7 @@
     <title>Document</title>
 </head>
 <body>
+<%@ include file="common/navigation.jspf" %>
 <div class="container">
     <h1>Enter Todo Details</h1>
 
