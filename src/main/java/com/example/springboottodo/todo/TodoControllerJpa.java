@@ -12,20 +12,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-
 import java.time.LocalDate;
 import java.util.List;
 
-//@Controller  // commenting the controller to make sure TodoControllerJpa works properly with out duplicating the endpoints
-
-public class TodoController {
+@Controller
+public class TodoControllerJpa {
 
 
     private TodoService todoService;
+    private TodoRepository todoRepository;
 
-    public TodoController(TodoService todoService) {
+    public TodoControllerJpa(TodoService todoService,TodoRepository todoRepository) {
         super();
         this.todoService = todoService;
+        this.todoRepository = todoRepository;
     }
 
     private String getLoggedinUsername(){
@@ -38,8 +38,12 @@ public class TodoController {
 
     @RequestMapping("/list-todos")
     public String listAllTodos(ModelMap model){
-        List<Todo> todoList = todoService.findByUserName(getLoggedinUsername());
+        String username = getLoggedinUsername();
+        System.out.println(username);
+       List<Todo> todoList= todoRepository.findByUserName(username);
+   //    List<Todo> todoList = todoService.findByUserName(getLoggedinUsername());
         model.addAttribute("todos", todoList);
+        System.out.println(todoList);
         return "listTodos";
     }
 
