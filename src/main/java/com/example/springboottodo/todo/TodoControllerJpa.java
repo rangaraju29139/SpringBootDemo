@@ -19,12 +19,12 @@ import java.util.List;
 public class TodoControllerJpa {
 
 
-    private TodoService todoService;
+//    private TodoService todoService;
     private TodoRepository todoRepository;
 
     public TodoControllerJpa(TodoService todoService,TodoRepository todoRepository) {
         super();
-        this.todoService = todoService;
+//        this.todoService = todoService;
         this.todoRepository = todoRepository;
     }
 
@@ -79,7 +79,8 @@ public class TodoControllerJpa {
 
     @RequestMapping(value = "/update-todo",method = RequestMethod.GET)
     public String showUpdateTodo(@RequestParam int id,ModelMap model){
-        Todo todo=todoService.findById(id);
+        Todo todo=todoRepository.findById(id).get();
+        /* Todo todo=todoService.findById(id); */
         model.addAttribute("todo",todo);
         return "updateTodo";
     }
@@ -90,8 +91,25 @@ public class TodoControllerJpa {
         }
         String description = todo.getDescription();
         int id = todo.getId();
+        todo.setUserName(getLoggedinUsername());
         LocalDate targetDate = todo.getTargetDate();
-        todoService.updateTodoById(id,description,targetDate);
+//        todoService.updateTodoById(id,description,targetDate);
+        todoRepository.save(todo);
+        return "redirect:list-todos";
+    }
+
+    @RequestMapping("update-done-todo")
+    public String updateDoneTodo(@RequestParam int id){
+        Todo todo=todoRepository.findById(id).get();
+        todo.setDone(true);
+        todoRepository.save(todo);
+        return "redirect:list-todos";
+    }
+    @RequestMapping("update-undone-todo")
+    public String updateUnDoneTodo(@RequestParam int id){
+        Todo todo=todoRepository.findById(id).get();
+        todo.setDone(false);
+        todoRepository.save(todo);
         return "redirect:list-todos";
     }
 
