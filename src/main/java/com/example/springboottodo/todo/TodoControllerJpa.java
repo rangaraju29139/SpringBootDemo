@@ -61,8 +61,11 @@ public class TodoControllerJpa {
         }
 
 
-        LocalDate targetDate = todo.getTargetDate();
-        todoService.addTodo(getLoggedinUsername(),todo.getDescription(), targetDate,false);
+        todo.setUserName(getLoggedinUsername());
+
+//        todoService.addTodo(getLoggedinUsername(),todo.getDescription(), todo.getTargetDate(),todo.isDone() );
+        todoRepository.save(todo);
+
         return "redirect:list-todos";
     }
 
